@@ -1,0 +1,26 @@
+# importa dados
+import matplotlib.pyplot as plt
+
+# Dados (apenas números)
+vagas = [4000, 553, 70, 120, 4, 13]
+cores = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6']
+
+# Criar o gráfico de pizza (sem labels de texto)
+plt.figure(figsize=(8, 6))
+plt.pie(
+    vagas,
+    labels=None,  # Remove os nomes dos estados
+    colors=cores,
+    autopct=lambda p: f'{p:.1f}%\n({int(p * sum(vagas) / 100)})',  # Formato: % + valor absoluto
+    startangle=90,
+    shadow=True,
+    textprops={'fontsize': 10, 'color': 'black'}  # Estilo do texto interno
+)
+
+# Título e ajustes
+plt.title('Distribuição de Vagas (Apenas Números)', fontsize=14)
+plt.axis('equal')
+
+# Mostrar o gráfico
+plt.tight_layout()
+plt.show()
